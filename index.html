@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,16 +32,12 @@
             overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             font-family: 'Outfit', sans-serif;
             letter-spacing: -1px;
         }
 
-        /* --- THE ANIMATIONS --- */
-
-        /* 1. NEURAL MESH BACKGROUND */
+        /* NEURAL MESH BACKGROUND */
         .ai-canvas {
             position: fixed;
             inset: 0;
@@ -60,83 +55,60 @@
         }
 
         @keyframes mesh-pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.1;
-            }
-
-            100% {
-                transform: scale(1.1);
-                opacity: 0.2;
-            }
+            0%   { transform: scale(1);   opacity: 0.1; }
+            100% { transform: scale(1.1); opacity: 0.2; }
         }
 
-        /* 2. LOGO AURA & PULSE */
+        /* LOGO */
         .logo-container {
             position: relative;
             display: inline-block;
-            margin: 60px 0;
-            padding: 40px;
+            margin: 40px 0;
+            padding: 30px;
         }
 
         .logo-aura {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120%;
-            height: 120%;
+            top: 50%; left: 50%;
+            width: 120%; height: 120%;
             transform: translate(-50%, -50%);
             background: radial-gradient(circle,
-                    rgba(0, 255, 136, 0.15) 0%,
-                    rgba(255, 204, 0, 0.1) 40%,
-                    transparent 70%);
+                rgba(0,255,136,0.15) 0%,
+                rgba(255,204,0,0.1) 40%,
+                transparent 70%);
             filter: blur(40px);
             animation: aura-breathe 4s ease-in-out infinite alternate;
             z-index: -1;
         }
 
         @keyframes aura-breathe {
-            from {
-                opacity: 0.4;
-                transform: translate(-50%, -50%) scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.1);
-            }
+            from { opacity: 0.4; transform: translate(-50%,-50%) scale(0.9); }
+            to   { opacity: 1;   transform: translate(-50%,-50%) scale(1.1); }
         }
 
         .cruv-logo-main {
-            max-width: 300px;
-            /* Large scale logo focus */
-            width: 100%;
+            max-width: 240px;
+            width: 60vw;
             height: auto;
-            filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.3));
+            filter: drop-shadow(0 0 30px rgba(0,255,136,0.3));
             animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-30px);
-            }
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-20px); }
         }
 
-        /* --- LAYOUT --- */
+        /* LAYOUT */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
         }
 
+        /* HEADER */
         header {
-            padding: 30px 0;
+            padding: 18px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -147,66 +119,72 @@
             z-index: 1000;
         }
 
-        .aces-logo {
-            height: 45px;
+        .aces-logo { height: 36px; }
+
+        .host-badge {
+            font-size: 0.65rem;
+            color: var(--logo-green);
+            font-weight: 900;
+            letter-spacing: 2px;
+            white-space: nowrap;
         }
 
-        /* --- HERO SECTION --- */
+        /* HERO */
         .hero {
-            padding: 100px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
         }
 
         .kicker {
             color: var(--logo-green);
             text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 0.75rem;
+            letter-spacing: 4px;
+            font-size: 0.7rem;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: block;
         }
 
         h1 {
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            line-height: 0.85;
-            margin-bottom: 35px;
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            line-height: 0.9;
+            margin-bottom: 25px;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
             color: var(--text-dim);
-            max-width: 800px;
-            margin: 0 auto 40px;
+            max-width: 720px;
+            margin: 0 auto 30px;
             font-weight: 300;
         }
 
-        /* --- NARRATIVE BLOCKS --- */
+        /* SECTION SPLIT */
         .section-split {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            gap: 80px;
-            padding: 120px 0;
+            gap: 60px;
+            padding: 80px 0;
             align-items: center;
         }
 
         .section-split h2 {
-            font-size: 4rem;
+            font-size: clamp(2rem, 5vw, 4rem);
             line-height: 1.1;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .section-split p {
-            font-size: 1.25rem;
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
             color: var(--text-dim);
         }
 
-        /* --- BENTO CARDS --- */
+        /* BENTO CARDS */
         .bento-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
-            padding: 50px;
-            border-radius: 40px;
+            padding: 36px;
+            border-radius: 28px;
             transition: 0.5s;
             position: relative;
             overflow: hidden;
@@ -214,28 +192,28 @@
 
         .bento-card:hover {
             border-color: var(--logo-yellow);
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.04);
         }
 
         .bento-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             color: var(--logo-yellow);
         }
 
-        /* --- CTA --- */
+        /* CTA */
         .btn-green {
             display: inline-block;
-            padding: 25px 80px;
+            padding: 18px 48px;
             background: var(--logo-green);
             color: #000;
             text-decoration: none;
             font-weight: 900;
             border-radius: 100px;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             transition: 0.4s;
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
+            box-shadow: 0 12px 35px rgba(0,255,136,0.35);
         }
 
         .btn-green:hover {
@@ -243,165 +221,268 @@
             transform: scale(1.05);
         }
 
-        footer {
-            padding: 60px 0;
+        /* ROADMAP */
+        .roadmap-section {
+            padding: 80px 0;
             border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            color: #444;
-            font-size: 0.9rem;
         }
 
+        .roadmap-section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 50px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            color: #444;
+            font-size: 0.85rem;
+        }
+
+        /* ── RESPONSIVE BREAKPOINTS ── */
+
+        /* Tablet */
         @media (max-width: 900px) {
             .section-split {
                 grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 60px 0;
             }
 
-            h1 {
-                font-size: 4rem;
+            /* flip rtl sections back to normal flow on mobile */
+            .section-split[style*="rtl"] {
+                direction: ltr !important;
+            }
+            .section-split[style*="rtl"] .text-side {
+                direction: ltr !important;
+            }
+            .section-split[style*="rtl"] .bento-card {
+                direction: ltr !important;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+
+            header {
+                padding: 14px 16px;
+                gap: 10px;
+            }
+
+            .aces-logo { height: 28px; }
+
+            .host-badge {
+                font-size: 0.55rem;
+                letter-spacing: 1px;
+            }
+
+            .hero { padding: 40px 0 30px; }
+
+            .kicker {
+                font-size: 0.62rem;
+                letter-spacing: 3px;
+            }
+
+            .logo-container {
+                padding: 20px;
+                margin: 24px 0;
+            }
+
+            .cruv-logo-main { max-width: 180px; }
+
+            .bento-card {
+                padding: 24px;
+                border-radius: 20px;
+            }
+
+            .bento-card h3 { font-size: 1.2rem; }
+
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .bento-grid .bento-card {
+                padding: 20px;
+            }
+
+            .roadmap-section { padding: 50px 0; }
+
+            .section-split { padding: 40px 0; }
+
+            footer {
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+                align-items: center;
+                padding: 30px 0;
+            }
+
+            .btn-green {
+                padding: 15px 36px;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Last section padding */
+            .last-section { padding-bottom: 60px !important; }
+        }
+
+        /* Very small screens */
+        @media (max-width: 380px) {
+            h1 { font-size: 2.2rem; }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <div class="ai-canvas">
-        <div class="neural-mesh"></div>
-    </div>
+<div class="ai-canvas">
+    <div class="neural-mesh"></div>
+</div>
 
-    <div class="container">
-        <header>
-            <div class="brand">
-                <img src="aces4_logo.png" class="aces-logo" alt="Aces4 IT Works">
-            </div>
-            <div style="font-size: 0.75rem; color: var(--logo-green); font-weight: 900; letter-spacing: 2px;">[
-                PRIVATE_HOST_ACTIVE ]</div>
-        </header>
+<div class="container">
+    <header>
+        <div class="brand">
+            <img src="aces4_logo.png" class="aces-logo" alt="Aces4 IT Works">
+        </div>
+        <div class="host-badge">[ PRIVATE_HOST_ACTIVE ]</div>
+    </header>
 
-        <section class="hero">
-            <span class="kicker">Sovereign Knowledge Infrastructure</span>
-            <h1>Stop searching.<br><span style="color: var(--logo-yellow)">Start knowing.</span></h1>
+    <section class="hero">
+        <span class="kicker">Sovereign Knowledge Infrastructure</span>
+        <h1>Own your data.<br><span style="color: var(--logo-yellow)">Command your intelligence.</span></h1>
 
-            <div class="logo-container">
-                <div class="logo-aura"></div>
-                <img src="favicon-dark.png" class="cruv-logo-main" alt="Cruv AI Logo">
-            </div>
-
-            <p>
-                <strong>Cruv AI</strong> is a private, high-performance intelligence interface that transforms
-                your institutional documents into a searchable local brain. It is a hardened,
-                air-gapped RAG (Retrieval-Augmented Generation) system deployed exclusively on
-                your internal hardware to ensure 100% data sovereignty.
-            </p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=acesitworks@gmail.com&su=Cruv+AI+Deployment+Inquiry"
-                target="_blank" class="btn-green">
-                Talk to Aces4
-            </a>
-        </section>
-
-        <section class="section-split">
-            <div class="text-side">
-                <span class="kicker" style="color: var(--logo-red);">The Risk</span>
-                <h2>Data leaks are a <span style="color: var(--logo-red)">structural failure.</span></h2>
-                <p>Using public AI for Philippine government filings or private company is a security breach waiting to
-                    happen. Cruv AI creates an air-gapped sanctuary where zero bytes leave your building.</p>
-            </div>
-            <div class="bento-card" style="border-left: 5px solid var(--logo-red);">
-                <h3 style="color: var(--logo-red);">Liability Analysis</h3>
-                <p>Public clouds train on your records. Manual search slows your growth. We solve both through local
-                    private server orchestration.</p>
-            </div>
-        </section>
-
-        <section class="section-split" style="direction: rtl;">
-            <div class="text-side" style="direction: ltr;">
-                <span class="kicker">The Solution</span>
-                <h2>Local LLM. <br><span style="color: var(--logo-green)">Private Logic.</span></h2>
-                <p>Cruv AI is a hardened software designed to deploy for institutional memory. It reads your PDFs,
-                    Excels, and images locally—citing sources directly from your vault.</p>
-            </div>
-            <div class="bento-card" style="border-left: 5px solid var(--logo-green); direction: ltr;">
-                <h3 style="color: var(--logo-green);">DPA Compliant</h3>
-                <p>Data Privacy Act (DPA) ready. Your PII and sensitive government records remain under your physical
-                    control at all times.</p>
-            </div>
-        </section>
-        <section class="section-split">
-            <div class="text-side">
-                <span class="kicker" style="color: var(--logo-yellow);">Intelligence Layer</span>
-                <h2>More than a Chatbot. <br><span style="color: var(--logo-yellow)">A Neural Archive.</span></h2>
-                <p>Cruv AI doesn't just "talk"—it indexes. Every PDF, spreadsheet, and scanned image is shredded into
-                    high-dimensional vectors, allowing the AI to "know" your data with mathematical precision.</p>
-                <p>No more digging through folders. Just ask, and the AI retrieves the exact paragraph from a 500-page
-                    document in milliseconds.</p>
-            </div>
-            <div class="bento-card" style="border: 1px solid var(--logo-yellow); background: rgba(255, 204, 0, 0.03);">
-                <h3 style="color: var(--logo-yellow); font-size: 1.4rem;">Document Processing</h3>
-                <ul style="list-style: none; margin-top: 20px; color: var(--text-dim); font-size: 0.95rem;">
-                    <li style="margin-bottom: 15px;"><strong style="color: var(--text-main);">✓ Automatic OCR:</strong>
-                        Read scanned image forms instantly.</li>
-                    <li style="margin-bottom: 15px;"><strong style="color: var(--text-main);">✓ Table
-                            Extraction:</strong> Query complex Excel data through natural language.</li>
-                    <li style="margin-bottom: 15px;"><strong style="color: var(--text-main);">✓ Source
-                            Citation:</strong> Every answer links back to the original file.</li>
-                </ul>
-            </div>
-        </section>
-
-
-        <div class="roadmap-section" style="padding: 100px 0; border-top: 1px solid var(--border);">
-            <span class="kicker" style="text-align: center; display: block;">The Deployment Process</span>
-            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 60px;">From Zero to <span
-                    style="color: var(--logo-green)">Sovereign.</span></h2>
-
-            <div class="bento"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div class="bento-card">
-                    <span style="font-size: 0.8rem; color: var(--logo-green); font-weight: 900;">01</span>
-                    <h3 style="font-size: 1.2rem; margin-top: 10px;">Audit</h3>
-                    <p style="font-size: 0.9rem;">We analyze your existing document silos and security requirements.</p>
-                </div>
-                <div class="bento-card">
-                    <span style="font-size: 0.8rem; color: var(--logo-green); font-weight: 900;">02</span>
-                    <h3 style="font-size: 1.2rem; margin-top: 10px;">On-Prem Host</h3>
-                    <p style="font-size: 0.9rem;">Setup of the hardened Ubuntu environment on your physical or private
-                        cloud servers.</p>
-                </div>
-                <div class="bento-card">
-                    <span style="font-size: 0.8rem; color: var(--logo-green); font-weight: 900;">03</span>
-                    <h3 style="font-size: 1.2rem; margin-top: 10px;">Indexing</h3>
-                    <p style="font-size: 0.9rem;">Cruv AI ingest your data, creating a private neural map of your
-                        institution.</p>
-                </div>
-                <div class="bento-card">
-                    <span style="font-size: 0.8rem; color: var(--logo-green); font-weight: 900;">04</span>
-                    <h3 style="font-size: 1.2rem; margin-top: 10px;">Activation</h3>
-                    <p style="font-size: 0.9rem;">Your team begins querying the local brain with 100% data privacy.</p>
-                </div>
-            </div>
+        <div class="logo-container">
+            <div class="logo-aura"></div>
+            <img src="favicon-dark.png" class="cruv-logo-main" alt="Cruv AI Logo">
         </div>
 
-        <section class="section-split" style="padding-bottom: 150px;">
-            <div class="bento-card" style="background: linear-gradient(145deg, rgba(255,59,59,0.05), transparent);">
-                <h3 style="color: var(--logo-red); font-size: 1.4rem;">Can anyone outside see our data?</h3>
-                <p style="font-size: 0.95rem; margin-top: 10px;">No. Cruv AI is designed for air-gapped or restricted
-                    network environments. There are no external "phone-home" calls to any AI provider.</p>
-            </div>
-            <div class="text-side">
-                <span class="kicker" style="color: var(--logo-red);">Protocols</span>
-                <h2>Enterprise <br>Security.</h2>
-                <p>We implement role-based access control (RBAC). Admin roles require specific approval levels, ensuring
-                    that sensitive government information is only accessible by authorized personnel.</p>
-            </div>
-        </section>
+        <p>
+            <strong>Cruv AI</strong> is a private, high-performance intelligence interface that transforms
+            your institutional documents into a searchable local brain. It is a hardened,
+            air-gapped RAG (Retrieval-Augmented Generation) system deployed exclusively on
+            your internal hardware to ensure 100% data sovereignty.
+        </p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=acesitworks@gmail.com&su=Cruv+AI+Deployment+Inquiry"
+            target="_blank" class="btn-green">
+            Talk to Aces4
+        </a>
+    </section>
 
-        <footer>
-            <span>CRUV AI / ACES4 IT WORKS COMPANY</span>
-            <p>© 2026 MANILA, PHILIPPINES</p>
-        </footer>
+    <section class="section-split">
+        <div class="text-side">
+            <span class="kicker" style="color: var(--logo-red);">The Risk</span>
+            <h2>Data leaks are a <span style="color: var(--logo-red)">structural failure.</span></h2>
+            <p>Using public AI for Philippine government filings or private company data is a security breach waiting to
+                happen. Cruv AI creates an air-gapped sanctuary where zero bytes leave your building.</p>
+        </div>
+        <div class="bento-card" style="border-left: 5px solid var(--logo-red);">
+            <h3 style="color: var(--logo-red);">Liability Analysis</h3>
+            <p>Public clouds train on your records. Manual search slows your growth. We solve both through local
+                private server orchestration.</p>
+        </div>
+    </section>
+
+    <section class="section-split">
+        <div class="text-side">
+            <span class="kicker">The Solution</span>
+            <h2>Local LLM. <br><span style="color: var(--logo-green)">Private Logic.</span></h2>
+            <p>Cruv AI is a hardened software designed to deploy for institutional memory. It reads your PDFs,
+                Excels, and images locally—citing sources directly from your vault.</p>
+        </div>
+        <div class="bento-card" style="border-left: 5px solid var(--logo-green);">
+            <h3 style="color: var(--logo-green);">DPA Compliant</h3>
+            <p>Data Privacy Act (DPA) ready. Your PII and sensitive government records remain under your physical
+                control at all times.</p>
+        </div>
+    </section>
+
+    <section class="section-split">
+        <div class="text-side">
+            <span class="kicker" style="color: var(--logo-yellow);">Intelligence Layer</span>
+            <h2>More than a Chatbot. <br><span style="color: var(--logo-yellow)">A Neural Archive.</span></h2>
+            <p style="margin-bottom: 16px;">Cruv AI doesn't just "talk"—it indexes. Every PDF, spreadsheet, and scanned image is shredded into
+                high-dimensional vectors, allowing the AI to "know" your data with mathematical precision.</p>
+            <p>No more digging through folders. Just ask, and the AI retrieves the exact paragraph from a 500-page
+                document in milliseconds.</p>
+        </div>
+        <div class="bento-card" style="border: 1px solid var(--logo-yellow); background: rgba(255,204,0,0.03);">
+            <h3 style="color: var(--logo-yellow); font-size: 1.3rem;">Document Processing</h3>
+            <ul style="list-style: none; margin-top: 16px; color: var(--text-dim); font-size: 0.9rem;">
+                <li style="margin-bottom: 14px;"><strong style="color: var(--text-main);">✓ Automatic OCR:</strong>
+                    Read scanned image forms instantly.</li>
+                <li style="margin-bottom: 14px;"><strong style="color: var(--text-main);">✓ Table Extraction:</strong>
+                    Query complex Excel data through natural language.</li>
+                <li style="margin-bottom: 14px;"><strong style="color: var(--text-main);">✓ Source Citation:</strong>
+                    Every answer links back to the original file.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="roadmap-section">
+        <span class="kicker" style="text-align: center; display: block;">The Deployment Process</span>
+        <h2>From Zero to <span style="color: var(--logo-green)">Sovereign.</span></h2>
+
+        <div class="bento-grid">
+            <div class="bento-card">
+                <span style="font-size: 0.75rem; color: var(--logo-green); font-weight: 900;">01</span>
+                <h3 style="font-size: 1.1rem; margin-top: 10px;">Audit</h3>
+                <p style="font-size: 0.88rem;">We analyze your existing document silos and security requirements.</p>
+            </div>
+            <div class="bento-card">
+                <span style="font-size: 0.75rem; color: var(--logo-green); font-weight: 900;">02</span>
+                <h3 style="font-size: 1.1rem; margin-top: 10px;">On-Prem Host</h3>
+                <p style="font-size: 0.88rem;">Setup of the hardened Ubuntu environment on your physical or private cloud servers.</p>
+            </div>
+            <div class="bento-card">
+                <span style="font-size: 0.75rem; color: var(--logo-green); font-weight: 900;">03</span>
+                <h3 style="font-size: 1.1rem; margin-top: 10px;">Indexing</h3>
+                <p style="font-size: 0.88rem;">Cruv AI ingests your data, creating a private neural map of your institution.</p>
+            </div>
+            <div class="bento-card">
+                <span style="font-size: 0.75rem; color: var(--logo-green); font-weight: 900;">04</span>
+                <h3 style="font-size: 1.1rem; margin-top: 10px;">Activation</h3>
+                <p style="font-size: 0.88rem;">Your team begins querying the local brain with 100% data privacy.</p>
+            </div>
+        </div>
     </div>
 
-</body>
+    <section class="section-split last-section">
+        <div class="bento-card" style="background: linear-gradient(145deg, rgba(255,59,59,0.05), transparent);">
+            <h3 style="color: var(--logo-red); font-size: 1.2rem;">Can anyone outside see our data?</h3>
+            <p style="font-size: 0.92rem; margin-top: 10px;">No. Cruv AI is designed for air-gapped or restricted
+                network environments. There are no external "phone-home" calls to any AI provider.</p>
+        </div>
+        <div class="text-side">
+            <span class="kicker" style="color: var(--logo-red);">Protocols</span>
+            <h2>Enterprise <br>Security.</h2>
+            <p>We implement role-based access control (RBAC). Admin roles require specific approval levels, ensuring
+                that sensitive government information is only accessible by authorized personnel.</p>
+        </div>
+    </section>
 
+    <footer>
+        <span>CRUV AI / ACES4 IT WORKS COMPANY</span>
+        <p>© 2026 MANILA, PHILIPPINES</p>
+    </footer>
+</div>
+
+</body>
 </html>
